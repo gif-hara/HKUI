@@ -42,6 +42,7 @@ namespace HK.UI
             else
             {
                 Debug.LogError($"Element not found: {name}");
+                return null;
             }
         }
     }
