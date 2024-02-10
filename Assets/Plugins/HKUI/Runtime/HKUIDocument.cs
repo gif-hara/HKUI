@@ -41,7 +41,7 @@ namespace HK.UI
             }
             else
             {
-                throw new Exception($"Element not found: {name}");
+                Debug.LogError($"Element not found: {name}");
             }
         }
     }
