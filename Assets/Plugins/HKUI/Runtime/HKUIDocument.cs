@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace HK.UI
 {
+    /// <summary>
+    /// Represents a UI document that contains a collection of UI elements.
+    /// </summary>
     public class HKUIDocument : MonoBehaviour
     {
         [SerializeField]
@@ -13,6 +16,12 @@ namespace HK.UI
 
         private readonly Dictionary<GameObject, Dictionary<Type, Component>> componentMap = new();
 
+        /// <summary>
+        /// Retrieves a component of type T from the UI element with the specified name.
+        /// </summary>
+        /// <typeparam name="T">The type of the component to retrieve.</typeparam>
+        /// <param name="name">The name of the UI element.</param>
+        /// <returns>The component of type T if found; otherwise, null.</returns>
         public T Q<T>(string name) where T : Component
         {
             var e = Q(name);
@@ -36,6 +45,11 @@ namespace HK.UI
             return (T)t;
         }
 
+        /// <summary>
+        /// Retrieves the UI element with the specified name.
+        /// </summary>
+        /// <param name="name">The name of the UI element.</param>
+        /// <returns>The UI element if found; otherwise, null.</returns>
         public GameObject Q(string name)
         {
             if (elementMap.Count == 0)
